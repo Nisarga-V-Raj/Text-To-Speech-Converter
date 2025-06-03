@@ -1,6 +1,18 @@
 let speech = new SpeechSynthesisUtterance();
 let voices = [];
 const voiceSelect = document.querySelector("select");
+const pitchInput = document.getElementById("pitch");
+const rateInput = document.getElementById("rate");
+
+speech.pitch = parseFloat(pitchInput.value);
+speech.rate = parseFloat(rateInput.value);
+
+pitchInput.addEventListener("input", () => {
+    speech.pitch = parseFloat(pitchInput.value);
+});
+rateInput.addEventListener("input", () => {
+    speech.rate = parseFloat(rateInput.value);
+});
 
 // Load voices asynchronously
 window.speechSynthesis.onvoiceschanged = () => {
