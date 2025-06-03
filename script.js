@@ -3,6 +3,14 @@ let voices = [];
 const voiceSelect = document.querySelector("select");
 const pitchInput = document.getElementById("pitch");
 const rateInput = document.getElementById("rate");
+const themeSwitcher = document.getElementById("themeSwitcher");
+const heroSection = document.querySelector(".hero");
+
+// Theme switcher functionality
+themeSwitcher.addEventListener("change", () => {
+    document.body.classList.toggle("light-mode");
+    heroSection.classList.toggle("light-mode");
+});
 
 speech.pitch = parseFloat(pitchInput.value);
 speech.rate = parseFloat(rateInput.value);
